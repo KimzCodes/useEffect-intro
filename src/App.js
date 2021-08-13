@@ -27,12 +27,31 @@ export default function App() {
   //effect without dependency array
   //after first render
   //run if any change happen
+  // useEffect(() => {
+  //   const fetchData = () => {
+  //     console.log("fetch data");
+  //   };
+  //   fetchData();
+  // });
+
+  //UseEffect with clean up
+  //first render
+  //use effect -> return clean / init clean
+
+  //change happen
+  //sec render
+  //excute clean up
+  //use effect
+
   useEffect(() => {
-    const fetchData = () => {
-      console.log("fetch data");
+    const timeout = setTimeout(() => {
+      console.log("timeout");
+    }, 1000);
+
+    return () => {
+      clearTimeout(timeout);
     };
-    fetchData();
-  });
+  }, [name]);
 
   return (
     <div className="App">
