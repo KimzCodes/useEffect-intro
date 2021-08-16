@@ -53,6 +53,29 @@ export default function App() {
   //re render
   //use Effect
 
+  // ------------------------------------- //
+  //clean up
+
+  useEffect(() => {
+    const timeOut = setTimeout(() => {
+      console.log("effect");
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeOut);
+    };
+  }, [name]);
+
+  //render
+  //use effect  x1
+  //return / init clean up
+
+  //change state
+  //render
+  //clean up excute
+  //useEffect -> watcher -> name updated -> run
+  //return / init clean up
+
   return (
     <div className="App">
       <label>Name </label>
